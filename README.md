@@ -1,3 +1,3 @@
-# Title
+# Battleships
 
-description
+A simple online recreation of the game Battleships.
