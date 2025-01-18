@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+:root {
+    --sec-bg-color: #183d3d;
+    --sec-font-color: #5c8374;
+    --main-bg-color: #040d12;
+    --main-font-color: #93b1a6;
+    --ship1-color: #7e1891;
+    --ship2-color: #e73879;
+    --ship3-color: #f26b0f;
+    --ship4-color: #fcc737;
+    --ship5-color: #6a80b9;
+    --hit-color: #e4003a;
+    --miss-color: #686d76;
+}
+
+* {
+    font-family: 'Jersey 15';
+    box-sizing: border-box;
+    color: var(--main-font-color);
+}
+
+h1 {
+    font-size: 72px;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 32px;
+    margin: 0px;
+}
+
+body {
+    background-color: var(--sec-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--main-bg-color);
+}
+
+button:hover {
+    background-color: var(--sec-font-color);
+    color: var(--main-bg-color);
+}
+
+main {
+    display: grid;
+    grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+    gap: 4px;
+    padding: 4px;
+}
+
+.boards {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.boards > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > div {
+    background-color: var(--sec-font-color);
+    min-height: 3vw;
+    min-width: 3vw;
+}
+
+.ship1 {
+    background-color: var(--ship1-color);
+}
+
+.ship2 {
+    background-color: var(--ship2-color);
+}
+
+.ship3 {
+    background-color: var(--ship3-color);
+}
+
+.ship4 {
+    background-color: var(--ship4-color);
+}
+
+.ship5 {
+    background-color: var(--ship5-color);
+}
+
+.miss {
+    background-color: var(--miss-color);
+}
+
+.hit {
+    background-color: var(--hit-color);
+}
+
+#start {
+    font-size: 24px;
+}
