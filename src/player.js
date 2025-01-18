@@ -12,16 +12,18 @@ export class AIPlayer {
     available = [];
 
     constructor() {
+        this.init().then();
+    }
+
+    async init() {
         for (let i = 0; i < 10; ++i) {
             for (let j = 0; j < 10; ++j) {
                 this.available.push([i, j]);
             }
         }
-        console.log(this.getRandParameters());
-        console.log(this.getRandParameters());
-        console.log(this.getRandParameters());
-        console.log(this.getRandParameters());
-        console.log(this.getRandParameters());
+        while (this.board.getUnplacedShip() !== null) {
+            this.board.placeShip(...this.getRandParameters());
+        }
     }
 
     getBoard() {
@@ -38,7 +40,7 @@ export class AIPlayer {
 
         return [
             align ? this.getRandInt(9) : this.getRandInt(9 - len),
-            align ? this.getRandInt(9) : this.getRandInt(9 - len),
+            align ? this.getRandInt(9 - len) : this.getRandInt(9),
             align,
         ];
     }

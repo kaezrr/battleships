@@ -1,21 +1,16 @@
 import './style.css';
-import { Player } from './player.js';
+import { AIPlayer, Player } from './player.js';
 import { fillGridSecret, fillGridShow } from './dom-manip.js';
 
 let player = new Player();
-let aiPlayer = new Player();
+let aiPlayer = new AIPlayer();
+aiPlayer.init().then();
 
 player.board.placeShip(1, 1, true);
 player.board.placeShip(4, 3, false);
 player.board.placeShip(6, 6, true);
 player.board.placeShip(7, 4, false);
 player.board.placeShip(3, 8, true);
-
-aiPlayer.board.placeShip(2, 2, false);
-aiPlayer.board.placeShip(5, 5, true);
-aiPlayer.board.placeShip(7, 7, false);
-aiPlayer.board.placeShip(9, 1, true);
-aiPlayer.board.placeShip(1, 9, false);
 
 fillGridShow(aiPlayer.getBoard(), false);
 fillGridSecret(aiPlayer.getBoard(), true);
