@@ -33,15 +33,16 @@ export class Gameboard {
         if (this.board[y][x] === 0) {
             this.misses.push([y, x]);
             this.board[y][x] = 6;
-            return false;
+            return { hit: false, msg: null };
         }
-        this.ships[this.board[y][x] - 1].ship.hit();
+        const ship = this.ships[this.board[y][x] - 1].ship;
+        ship.hit();
         this.board[y][x] = 7;
-        return true;
+        return ship.isSunk() ? { hit: true, sunk: ship.name } : { hit: true, sunk: null };
     }
 
     allSunk() {
-        this.ships.every((e) => e.ship.isSunk() === true);
+        return this.ships.every((e) => e.ship.isSunk() === true);
     }
 
     getUnplacedShip() {

@@ -1,8 +1,11 @@
 const playerMain = document.querySelector('.player');
 const opponentMain = document.querySelector('.opponent');
+const opponentText = document.querySelector('.opponent-text');
+const playerText = document.querySelector('.player-text');
+const gameText = document.querySelector('.game-text');
 
 export function fillGridShow(board, opponent) {
-    const classes = ['empty', 'ship1', 'ship2', 'ship3', 'ship4', 'ship5', 'hit', 'miss'];
+    const classes = ['empty', 'ship1', 'ship2', 'ship3', 'ship4', 'ship5', 'miss', 'hit'];
     const list = [];
     for (let i = 0; i < 10; ++i) {
         for (let j = 0; j < 10; ++j) {
@@ -38,4 +41,16 @@ export function fillGridSecret(board, opponent) {
         }
     }
     (opponent ? opponentMain : playerMain).replaceChildren(...list);
+}
+
+export async function opponentSays(msg) {
+    opponentText.textContent = msg;
+}
+
+export async function humanSays(msg) {
+    playerText.textContent = msg;
+}
+
+export function gameSays(msg) {
+    gameText.textContent = msg;
 }

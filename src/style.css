@@ -30,6 +30,13 @@ h2 {
     margin: 0px;
 }
 
+.bottom {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
 body {
     background-color: var(--sec-bg-color);
     display: flex;
@@ -49,7 +56,8 @@ button:hover {
     color: var(--main-bg-color);
 }
 
-main {
+.player,
+.opponent {
     display: grid;
     grid-template: repeat(10, 1fr) / repeat(10, 1fr);
     gap: 4px;
@@ -57,51 +65,87 @@ main {
 }
 
 .boards {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr 8fr 1fr;
     width: 100%;
-}
-
-.boards > div {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-items: center;
 }
 
-main > div {
+.board > div {
     background-color: var(--sec-font-color);
-    min-height: 3vw;
-    min-width: 3vw;
+    height: 3vw;
+    width: 3vw;
 }
 
-.ship1 {
-    background-color: var(--ship1-color);
+.player {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
 }
 
-.ship2 {
-    background-color: var(--ship2-color);
+.opponent {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
 }
 
-.ship3 {
-    background-color: var(--ship3-color);
+.player-text {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
 }
 
-.ship4 {
-    background-color: var(--ship4-color);
+.opponent-text {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
 }
 
-.ship5 {
-    background-color: var(--ship5-color);
+.player-head {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
 }
 
-.miss {
-    background-color: var(--miss-color);
+.opponent-head {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
 }
 
-.hit {
-    background-color: var(--hit-color);
+.game-text {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: flex-start;
+    font-size: 40px;
 }
 
 #start {
     font-size: 24px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.board > .ship1 {
+    background-color: var(--ship1-color);
+}
+
+.board > .ship2 {
+    background-color: var(--ship2-color);
+}
+
+.board > .ship3 {
+    background-color: var(--ship3-color);
+}
+
+.board > .ship4 {
+    background-color: var(--ship4-color);
+}
+
+.board > .ship5 {
+    background-color: var(--ship5-color);
+}
+
+.board > .miss {
+    background-color: var(--miss-color);
+}
+
+.board > .hit {
+    background-color: var(--hit-color);
 }

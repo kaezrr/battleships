@@ -12,7 +12,7 @@ export class AIPlayer {
     available = [];
 
     constructor() {
-        this.init().then();
+        this.init();
     }
 
     async init() {
@@ -43,5 +43,15 @@ export class AIPlayer {
             align ? this.getRandInt(9 - len) : this.getRandInt(9),
             align,
         ];
+    }
+
+    playTurn(board) {
+        const attackPos = this.getRandInt(this.available.length - 1);
+        const res = board.receiveAttack(...this.available[attackPos]);
+        this.available.splice(attackPos, 1);
+
+        if (res.sunk) return `I sunk your ${res.sunk} 😂`;
+        if (res.hit) return 'Haha, I hit you 😜';
+        return 'I missed 😥';
     }
 }
