@@ -10,7 +10,6 @@ export class Gameboard {
     ];
 
     board = Array.from(Array(10), () => new Array(10).fill(0));
-    misses = [];
 
     placeShip(y, x, axis) {
         const unit = this.getUnplacedShip();
@@ -31,7 +30,6 @@ export class Gameboard {
     receiveAttack(y, x) {
         if (x < 0 || y < 0 || x >= 10 || y >= 10) return false;
         if (this.board[y][x] === 0) {
-            this.misses.push([y, x]);
             this.board[y][x] = 6;
             return { hit: false, msg: null };
         }
